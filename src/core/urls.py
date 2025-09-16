@@ -14,9 +14,15 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path
 
+from company_basic.router import api as basic_api
+from company_ninja_crud.router import api as ninja_crud_api
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
+    path("basic/", basic_api.urls),
+    path("ninja-crud/", ninja_crud_api.urls),
 ]

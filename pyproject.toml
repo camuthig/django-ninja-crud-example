@@ -6,4 +6,31 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "django>=5.2.6",
+    "django-ninja>=1.4.3",
+    "django-ninja-crud>=0.6.2",
 ]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.13.0",
+]
+
+[tool.ruff]
+
+line-length = 128
+target-version = "py313"
+src = ["src"]
+
+[tool.ruff.lint]
+extend-select = [
+    "I",  # isort
+    "TID252",  # prefer using absolute over relative imports
+]
+
+[tool.ruff.lint.isort]
+force-single-line = true
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
