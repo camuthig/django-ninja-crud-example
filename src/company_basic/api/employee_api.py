@@ -76,7 +76,7 @@ class EmployeeUpdateRequest(Schema):
 def update_employee(request, id: int, data: EmployeeUpdateRequest):
     instance = get_object_or_404(Employee.objects.prefetch_related("projects"), id=id)
 
-    provided_data = data.dict(exclude_unset=True)
+    provided_data = data.model_dump(exclude_unset=True)
 
     instance.first_name = provided_data.get("first_name", instance.first_name)
     instance.last_name = provided_data.get("last_name", instance.last_name)

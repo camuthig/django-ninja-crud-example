@@ -24,4 +24,5 @@ class DummyAuthBearer(HttpBearer):
         # `permission_required` decorator.
         request.user = user or AnonymousUser()
 
+        # Django Ninja will add this returned value to the `request.auth` property.
         return user
